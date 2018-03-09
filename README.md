@@ -12,12 +12,24 @@ RESTful API to manage users and widgets written in Go. It uses MongoDB as storag
 * git clone https://github.com/loadfms/red-go-api.git
 * open terminal in cloned directory
 ```sh
-$ go get ./...
+$ go get
 ```
 * build
 ```sh
 $ go build
 ```
-* execute app :)
 
+### Execute
+#### Windows
+* execute red-go-api.exe or
+```sh
+$ go run app.gp
+```
+
+#### Linux and osX
+```sh
+$ ./widgets-spa-go-api
+```
+
+* api will be running on http://localhost:3000
 
