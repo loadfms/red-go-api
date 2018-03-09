@@ -39,8 +39,8 @@ func (m *UsersDAO) Insert(user User) error {
 }
 
 // Delete an existing user
-func (m *UsersDAO) Delete(user User) error {
-	err := session.DB(config.Database).C(COLLECTION_USERS).Remove(&user)
+func (m *UsersDAO) Delete(id string) error {
+	err := session.DB(config.Database).C(COLLECTION_USERS).RemoveId(bson.ObjectIdHex(id))
 	return err
 }
 

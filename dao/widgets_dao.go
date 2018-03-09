@@ -39,8 +39,8 @@ func (m *WidgetsDAO) Insert(widget Widget) error {
 }
 
 // Delete an existing user
-func (m *WidgetsDAO) Delete(widget Widget) error {
-	err := session.DB(config.Database).C(COLLECTION_WIDGETS).Remove(&widget)
+func (m *WidgetsDAO) Delete(id string) error {
+	err := session.DB(config.Database).C(COLLECTION_WIDGETS).RemoveId(bson.ObjectIdHex(id))
 	return err
 }
 

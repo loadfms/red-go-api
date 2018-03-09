@@ -23,7 +23,7 @@ func main() {
 	r.Handle("/users", jwtMiddleware.Handler(AllUsersEndPoint)).Methods("GET")
 	r.Handle("/users", jwtMiddleware.Handler(CreateUserEndPoint)).Methods("POST")
 	r.Handle("/users/{id}", jwtMiddleware.Handler(UpdateUserEndPoint)).Methods("PUT")
-	r.Handle("/users", jwtMiddleware.Handler(DeleteUserEndPoint)).Methods("DELETE")
+	r.Handle("/users/{id}", jwtMiddleware.Handler(DeleteUserEndPoint)).Methods("DELETE")
 	r.Handle("/users/{id}", jwtMiddleware.Handler(FindUserEndpoint)).Methods("GET")
 
 	//Widget

@@ -69,12 +69,13 @@ var UpdateWidgetsEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http
 // DELETE an existing widget
 var DeleteWidgetsEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
+	params := mux.Vars(r)
 	var widget Widget
 	if err := json.NewDecoder(r.Body).Decode(&widget); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
 		return
 	}
-	if err := widgetDao.Delete(widget); err != nil {
+	if err := widgetDao.Delete(params["id"]); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
