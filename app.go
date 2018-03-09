@@ -27,6 +27,11 @@ func main() {
 	r.Handle("/users/{id}", jwtMiddleware.Handler(FindUserEndpoint)).Methods("GET")
 
 	//Widget
+	r.Handle("/widgets", jwtMiddleware.Handler(AllWidgetsEndPoint)).Methods("GET")
+	r.Handle("/widgets", jwtMiddleware.Handler(CreateWidgetsEndPoint)).Methods("POST")
+	r.Handle("/widgets", jwtMiddleware.Handler(UpdateWidgetsEndPoint)).Methods("PUT")
+	r.Handle("/widgets", jwtMiddleware.Handler(DeleteWidgetsEndPoint)).Methods("DELETE")
+	r.Handle("/widgets/{id}", jwtMiddleware.Handler(FindWidgetsEndpoint)).Methods("GET")
 
 	if err := http.ListenAndServe(":3000", r); err != nil {
 		log.Fatal(err)
