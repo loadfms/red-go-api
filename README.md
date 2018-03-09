@@ -37,14 +37,17 @@ $ ./widgets-spa-go-api
 
 ## Endpoints
 
+### Token
 * GET /get-token http://localhost:3000/token
 
+### User
 * GET /users http://localhost:3000/users
 * GET /users/:id http://localhost:3000/users/:id
 * (Bonus!) POST /users http://localhost:3000/users 
 * (Bonus!) PUT /users/:id http://localhost:3000/users/:id
 * (Bonus!) DELETE /users/:id http://localhost:3000/users/:id
 
+### Widget
 * GET /widgets http://localhost:3000/widgets
 * GET /widgets/:id http://localhost:3000/widgets/:id
 * POST /widgets http://localhost:3000/widgets
