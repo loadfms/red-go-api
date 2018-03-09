@@ -18,33 +18,33 @@ func NewWidgetsDAO(session *mgo.Session) *WidgetsDAO {
 	return &WidgetsDAO{session}
 }
 
-// Find list of users
+// Find list of widgets
 func (m *WidgetsDAO) FindAll() ([]Widget, error) {
 	var widget []Widget
 	err := session.DB(config.Database).C(COLLECTION_WIDGETS).Find(bson.M{}).All(&widget)
 	return widget, err
 }
 
-// Find a user by its id
+// Find a widget by its id
 func (m *WidgetsDAO) FindById(id string) (Widget, error) {
 	var widget Widget
 	err := session.DB(config.Database).C(COLLECTION_WIDGETS).FindId(bson.ObjectIdHex(id)).One(&widget)
 	return widget, err
 }
 
-// Insert a user into database
+// Insert a widget into database
 func (m *WidgetsDAO) Insert(widget Widget) error {
 	err := session.DB(config.Database).C(COLLECTION_WIDGETS).Insert(&widget)
 	return err
 }
 
-// Delete an existing user
+// Delete an existing widget
 func (m *WidgetsDAO) Delete(id string) error {
 	err := session.DB(config.Database).C(COLLECTION_WIDGETS).RemoveId(bson.ObjectIdHex(id))
 	return err
 }
 
-// Update an existing user
+// Update an existing widget
 func (m *WidgetsDAO) Update(id string, widget Widget) error {
 	widget.Id = bson.ObjectIdHex(id)
 	err := session.DB(config.Database).C(COLLECTION_WIDGETS).UpdateId(bson.ObjectIdHex(id), &widget)
