@@ -45,7 +45,8 @@ func (m *WidgetsDAO) Delete(widget Widget) error {
 }
 
 // Update an existing user
-func (m *WidgetsDAO) Update(widget Widget) error {
-	err := session.DB(config.Database).C(COLLECTION_WIDGETS).UpdateId(widget.Id, &widget)
+func (m *WidgetsDAO) Update(id string, widget Widget) error {
+	widget.Id = bson.ObjectIdHex(id)
+	err := session.DB(config.Database).C(COLLECTION_WIDGETS).UpdateId(bson.ObjectIdHex(id), &widget)
 	return err
 }

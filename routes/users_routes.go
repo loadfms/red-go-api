@@ -53,12 +53,14 @@ var CreateUserEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 // PUT update an existing User
 var UpdateUserEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
+	params := mux.Vars(r)
+
 	var user User
 	if err := json.NewDecoder(r.Body).Decode(&user); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
 		return
 	}
-	if err := userDao.Update(user); err != nil {
+	if err := userDao.Update(params["id"], user); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}

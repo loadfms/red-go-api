@@ -45,7 +45,8 @@ func (m *UsersDAO) Delete(user User) error {
 }
 
 // Update an existing user
-func (m *UsersDAO) Update(user User) error {
-	err := session.DB(config.Database).C(COLLECTION_USERS).UpdateId(user.Id, &user)
+func (m *UsersDAO) Update(id string, user User) error {
+	user.Id = bson.ObjectIdHex(id)
+	err := session.DB(config.Database).C(COLLECTION_USERS).UpdateId(bson.ObjectIdHex(id), &user)
 	return err
 }

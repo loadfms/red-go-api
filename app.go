@@ -22,14 +22,14 @@ func main() {
 	//User
 	r.Handle("/users", jwtMiddleware.Handler(AllUsersEndPoint)).Methods("GET")
 	r.Handle("/users", jwtMiddleware.Handler(CreateUserEndPoint)).Methods("POST")
-	r.Handle("/users", jwtMiddleware.Handler(UpdateUserEndPoint)).Methods("PUT")
+	r.Handle("/users/{id}", jwtMiddleware.Handler(UpdateUserEndPoint)).Methods("PUT")
 	r.Handle("/users", jwtMiddleware.Handler(DeleteUserEndPoint)).Methods("DELETE")
 	r.Handle("/users/{id}", jwtMiddleware.Handler(FindUserEndpoint)).Methods("GET")
 
 	//Widget
 	r.Handle("/widgets", jwtMiddleware.Handler(AllWidgetsEndPoint)).Methods("GET")
 	r.Handle("/widgets", jwtMiddleware.Handler(CreateWidgetsEndPoint)).Methods("POST")
-	r.Handle("/widgets", jwtMiddleware.Handler(UpdateWidgetsEndPoint)).Methods("PUT")
+	r.Handle("/widgets/{id}", jwtMiddleware.Handler(UpdateWidgetsEndPoint)).Methods("PUT")
 	r.Handle("/widgets", jwtMiddleware.Handler(DeleteWidgetsEndPoint)).Methods("DELETE")
 	r.Handle("/widgets/{id}", jwtMiddleware.Handler(FindWidgetsEndpoint)).Methods("GET")
 
