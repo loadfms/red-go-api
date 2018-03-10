@@ -53,3 +53,70 @@ $ ./widgets-spa-go-api
 * POST /widgets http://localhost:3000/widgets
 * PUT /widgets/:id http://localhost:3000/widgets/:id
 * (Bonus!) DELETE /widgets/:id http://localhost:3000/users/:id
+
+## Tests
+### Token
+* Retrieve token to be used to authenticate other requests
+```sh
+curl -X GET   http://localhost:3000/token   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'
+```
+
+### User
+* Retrieve all users in database
+```sh
+curl -X GET   http://localhost:3000/users   -H 'Authorization: Bearer TOKEN'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'
+```
+
+* Retrieve user by id
+```sh
+curl -X GET   http://localhost:3000/users/{id}   -H 'Authorization: Bearer TOKEN'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'
+```
+
+* Create user
+```sh
+curl -X POST  http://localhost:3000/users -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "Leonardo", "gravatar": "gravatar.jpg"}'
+```
+
+* Update user
+```sh
+curl -X PUT  http://localhost:3000/users/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "Leonardo", "gravatar": "gravatar_2.jpg"}'
+```
+
+* Delete user
+```sh
+curl -X DELETE  http://localhost:3000/users/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json'
+```
+
+### Widget
+* Retrieve all widgets in database
+```sh
+curl -X GET   http://localhost:3000/widgets   -H 'Authorization: Bearer TOKEN'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'
+```
+
+* Retrieve widget by id
+```sh
+curl -X GET   http://localhost:3000/widgets/{id}   -H 'Authorization: Bearer TOKEN'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'
+```
+
+* Create widget
+```sh
+curl -X POST  http://localhost:3000/widgets -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "First widget", "color": "red", "price": "20", "inventory": 1000,"melts": false}'
+```
+
+* Update widget
+```sh
+curl -X PUT  http://localhost:3000/widgets/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "First widget", "color": "blue", "price": "20", "inventory": 1000,"melts": false}'
+```
+
+* Delete widget
+```sh
+curl -X DELETE  http://localhost:3000/widgets/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json'
+```
+
+## Sorry about the mess!
+Hello guys! This is my very first app built in Go Lang, so, I'm pretty sure there are many other best ways to do.
+But I will love learn all the amazing things and the right way to deal with this.
+I really loved Go! :)
+Thanks for your attention and I'm looking forward for some positive feedback.
+Best regards
+Leo
