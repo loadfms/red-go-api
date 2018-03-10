@@ -70,11 +70,6 @@ var UpdateUserEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 var DeleteUserEndPoint = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	params := mux.Vars(r)
-	var user User
-	if err := json.NewDecoder(r.Body).Decode(&user); err != nil {
-		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
-		return
-	}
 	if err := userDao.Delete(params["id"]); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
