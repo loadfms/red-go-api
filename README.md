@@ -30,7 +30,7 @@ $ go run app.go
 
 #### Linux and osX
 ```sh
-$ ./red-go-ap
+$ ./red-go-api
 ```
 
 * api will be running on http://localhost:3000
