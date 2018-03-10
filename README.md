@@ -30,7 +30,7 @@ $ go run app.go
 
 #### Linux and osX
 ```sh
-$ ./widgets-spa-go-api
+$ ./red-go-ap
 ```
 
 * api will be running on http://localhost:3000
