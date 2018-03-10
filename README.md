@@ -30,7 +30,7 @@ $ go run app.go
 
 #### Linux and osX
 ```sh
-$ ./red-go-ap
+$ ./red-go-api
 ```
 
 * api will be running on http://localhost:3000
@@ -79,7 +79,7 @@ curl -X POST  http://localhost:3000/users -H 'Authorization: Bearer TOKEN' -H 'C
 
 * Update user
 ```sh
-curl -X PUT  http://localhost:3000/users/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "Leonardo", "gravatar": "gravatar_2.jpg"}'
+curl -X PUT http://localhost:3000/users/{id} -H 'Authorization: Bearer TOKEN' -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"name": "Leonardo Dois", "gravatar": "gravatar_2.jpg"}'
 ```
 
 * Delete user
