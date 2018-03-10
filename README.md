@@ -114,9 +114,9 @@ curl -X DELETE  http://localhost:3000/widgets/{id} -H 'Authorization: Bearer TOK
 ```
 
 ## Sorry about the mess!
-Hello guys! This is my very first app built in Go Lang, so, I'm pretty sure there are many other best ways to do.
-But I will love learn all the amazing things and the right way to deal with this.
-I really loved Go! :)
-Thanks for your attention and I'm looking forward for some positive feedback.
-Best regards
+Hello guys! This is my very first app built in Go Lang, so, I'm pretty sure there are many other best ways to do.  
+But I will love learn all the amazing things and the right way to deal with this.  
+I really loved Go! :)  
+Thanks for your attention and I'm looking forward for some positive feedback.  
+Best regards  
 Leo
